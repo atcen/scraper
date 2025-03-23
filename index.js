@@ -21,10 +21,7 @@ const server = http.createServer(async (req, res) => {
     await page.goto(`https://www.sunnyportal.com/`, { waitUntil: 'networkidle' });
     console.log('Aktuelle URL (Start):', page.url());
 
-    await Promise.all([
-      page.waitForNavigation({ waitUntil: 'networkidle' }),
-      page.click('#ctl00_ContentPlaceHolder1_Logincontrol1_SmaIdLoginButton')
-    ]);
+    page.click('#ctl00_ContentPlaceHolder1_Logincontrol1_SmaIdLoginButton')
     console.log('Nach Klick auf Login-Button:', page.url());
 
     await page.fill('#username', process.env.SP_USERNAME);
