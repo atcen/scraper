@@ -5,8 +5,6 @@ services:
     image: mcr.microsoft.com/playwright:v1.51.1-noble
     ports:
       - "3000:3000"
-    env_file:
-      - .env
     environment:
       - NODE_ENV=development
     volumes:
