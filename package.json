@@ -1,0 +1,21 @@
+{
+  "name": "sunny-scraper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "docker build -t sunny-scraper .",
+    "start": "docker run -p 3000:3000 --env-file .env sunny-scraper",
+    "dev": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "playwright": "^1.51.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7"
+  }
+}
