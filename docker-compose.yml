@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   sunnyportal-scraper:
-    image: mcr.microsoft.com/playwright:focal
+    image: mcr.microsoft.com/playwright:v1.51.1-noble
     ports:
       - "3000:3000"
     env_file:
@@ -11,6 +11,5 @@ services:
       - NODE_ENV=development
     volumes:
       - .:/app
-      - /app/node_modules
     working_dir: /app
-    command: sh -c "npm install && npx playwright install && npm start"
+    command: sh -c "if [ ! -d 'node_modules' ]; then npm install; fi && npx playwright install && npm start"
