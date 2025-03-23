@@ -14,7 +14,8 @@ const server = http.createServer(async (req, res) => {
     const page = await browser.newPage();
 
     // Login
-    await page.goto(`https://login.sma.energy/auth/realms/SMA/protocol/openid-connect/auth?response_type=code&client_id=SunnyPortalClassic&client_secret=${process.env.SP_CLIENT_SECRET}&redirect_uri=https%3a%2f%2fwww.sunnyportal.com%2fTemplates%2fStart.aspx&ui_locales=de`);
+    // der clientsecret ist nicht geheim, da er im Quellcode des Portals steht
+    await page.goto(`https://login.sma.energy/auth/realms/SMA/protocol/openid-connect/auth?response_type=code&client_id=SunnyPortalClassic&client_secret=baa6d5fe-f905-4fb2-bc8e-8f218acc2835&redirect_uri=https%3a%2f%2fwww.sunnyportal.com%2fTemplates%2fStart.aspx&ui_locales=de`);
     await page.waitForSelector('.login-card__body');
     await page.fill('#username', process.env.SP_USERNAME);
     await page.fill('#password', process.env.SP_PASSWORD);
