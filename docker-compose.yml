@@ -1,11 +1,11 @@
+version: '3.8'
+
 services:
   sunnyportal-scraper:
-    image: mcr.microsoft.com/playwright:v1.51.1-noble
+    build: .
     ports:
       - "3000:3000"
+    env_file:
+      - .env
     environment:
       - NODE_ENV=development
-    working_dir: /app
-    volumes:
-      - .:/app:cached
-    command: sh -c "npm ci && npx playwright install && npm start"
