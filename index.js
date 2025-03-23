@@ -41,7 +41,7 @@ const server = http.createServer(async (req, res) => {
 
     // Wartezeit für evtl. automatische Weiterleitung
     await page.waitForTimeout(1000);
-    await page.screenshot({ path: '3.png' });
+    //await page.screenshot({ path: '3.png' });
 
     // Auf die gewünschte Seite navigieren
     const navItem = await page.$('#lmiHomanLive a');
